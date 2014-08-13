@@ -1167,7 +1167,7 @@ ss.SimpleUpload.prototype = {
 
     xhr.setRequestHeader( 'X-Requested-With', 'XMLHttpRequest' );
     xhr.setRequestHeader( 'X-File-Name', encodeURIComponent( filename ) );
-
+    xhr.withCredentials = true;
     if ( opts.responseType.toLowerCase() == 'json' ) {
       xhr.setRequestHeader( 'Accept', 'application/json, text/javascript, */*; q=0.01' );
     }
