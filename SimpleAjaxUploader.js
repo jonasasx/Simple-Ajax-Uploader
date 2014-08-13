@@ -1050,7 +1050,6 @@ ss.SimpleUpload.prototype = {
         opts = this._opts,
         xhr = ss.newXHR(),
         params = {},
-        postParams = {},
         queryURL,
         callback,
         cancel;
@@ -1061,7 +1060,6 @@ ss.SimpleUpload.prototype = {
     // We get the any additional data here after startXHR()
     // in case the data was changed with setData() prior to submitting
     ss.extendObj( params, opts.data );
-    ss.extendObj( postParams, opts.postData );
 
     // Build query string while preserving any existing parameters
     queryURL = opts.url + ( ( opts.url.indexOf( '?' ) > -1 ) ? '&' : '?' ) + ss.obj2string( params );
@@ -1183,12 +1181,6 @@ ss.SimpleUpload.prototype = {
 
     if ( opts.multipart === true || opts.postData ) {
       var formData = new FormData();
-
-      for ( var prop in opts.data ) {
-        if ( opts.data.hasOwnProperty( prop ) ) {
-          formData.append( prop, opts.data[prop] );
-        }
-      }
 
 	for ( var prop in opts.postData ) {
         if ( opts.postData.hasOwnProperty( prop ) ) {
