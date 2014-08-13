@@ -1181,7 +1181,7 @@ ss.SimpleUpload.prototype = {
       }
     }
 
-    if ( opts.multipart === true || postData.length > 0 ) {
+    if ( opts.multipart === true || opts.postData.length > 0 ) {
       var formData = new FormData();
 
       for ( var prop in opts.data ) {
